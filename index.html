@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piston Motors - Portal de Dados</title>
+    <style>
+        :root {
+            --primary-red: #cc0000;
+            --dark-bg: #1a1a1a;
+            --light-text: #f4f4f4;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: var(--dark-bg);
+            color: var(--primary-red);
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 4px solid var(--primary-red);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 250px;
+            background: url('https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80') center/cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: var(--primary-red);
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .login-section {
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: var(--primary-red);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background-color: #990000;
+        }
+
+        .hint {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* Classes para alternar as telas */
+        .hidden {
+            display: none;
+        }
+
+        .dashboard-content {
+            background-color: #e8f4f8;
+            padding: 20px;
+            border-left: 5px solid #0066cc;
+            margin-top: 20px;
+        }
+
+        .download-btn {
+            background-color: #0066cc;
+            margin-top: 20px;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .download-btn:hover {
+            background-color: #004c99;
+        }
+
+        .error-msg {
+            color: red;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Piston Motors</h1>
+    </header>
+
+    <div id="landing-page" class="container">
+        <div class="hero-image"></div>
+        
+        <h2>Nossa História</h2>
+        <p>A Piston Motors é pioneira na revolução da mobilidade. Nosso foco é estudar o desempenho do veículo, o feedback do cliente e os dados de segurança para criar uma experiência inesquecível na estrada. Seus insights orientarão a nossa equipe de engenharia para prever necessidades de manutenção e tornar nossos carros mais eficientes e seguros.</p>
+        
+        <div class="login-section">
+            <h3>Acesso ao Portal de Análise</h3>
+            <p>Por favor, insira suas credenciais de Analista de Dados para acessar o repositório de dados confidenciais.</p>
+            
+            <div class="form-group">
+                <label for="username">Usuário (E-mail corporativo):</label>
+                <input type="text" id="username" placeholder="analista@pistonmotors.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Senha de Segurança:</label>
+                <input type="password" id="password" placeholder="Digite sua senha">
+                <div class="hint"><strong>Dica de Segurança:</strong> A velocidade é o meu lema! Qual é o bordão do carro mais rápido das pistas? (Não esqueça o hífen e a exclamação no final).</div>
+            </div>
+            
+            <button onclick="tentarLogin()">Acessar Banco de Dados</button>
+            <div id="error-message" class="error-msg">Senha incorreta. Acesso negado. Tente novamente!</div>
+        </div>
+    </div>
+
+    <div id="dashboard-page" class="container hidden">
+        <h2>Bem
