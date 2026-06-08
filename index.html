@@ -3,172 +3,364 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Piston Motors - Portal de Dados</title>
+    <title>Piston Motors | Analytics Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-red: #cc0000;
-            --dark-bg: #1a1a1a;
-            --light-text: #f4f4f4;
+            --primary: #E50914; /* Vermelho esportivo */
+            --primary-hover: #b80710;
+            --bg-dark: #0a0a0a;
+            --text-main: #f4f4f5;
+            --text-muted: #a1a1aa;
+            --glass-bg: rgba(24, 24, 27, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f9f9;
-            color: #333;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.9)), 
+                        url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1920&q=80') center/cover fixed;
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
-        header {
-            background-color: var(--dark-bg);
-            color: var(--primary-red);
-            padding: 1.5rem;
-            text-align: center;
-            border-bottom: 4px solid var(--primary-red);
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
+        /* Glassmorphism Container */
         .container {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            max-width: 900px;
+            margin: auto;
+            padding: 40px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+            transition: all 0.5s ease;
         }
 
-        .hero-image {
-            width: 100%;
-            height: 250px;
-            background: url('https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80') center/cover;
-            border-radius: 8px;
-            margin-bottom: 20px;
+        .header-logo {
+            text-align: center;
+            margin-bottom: 30px;
         }
 
-        h2 {
-            color: var(--primary-red);
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
+        .header-logo h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #fff, var(--text-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .login-section {
-            background-color: #f1f1f1;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 30px;
+        .header-logo span {
+            color: var(--primary);
+            -webkit-text-fill-color: var(--primary);
         }
 
-        .form-group {
-            margin-bottom: 15px;
+        .description {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            font-weight: 300;
+            line-height: 1.6;
         }
 
-        label {
+        /* Login Form Section */
+        .login-wrapper {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .input-group {
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .input-group label {
             display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
         }
 
-        input[type="text"], input[type="password"] {
+        .input-group input {
             width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: var(--primary-red);
-            color: white;
-            border: none;
-            padding: 12px 20px;
+            padding: 14px 16px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--glass-border);
+            border-radius: 8px;
+            color: #fff;
             font-size: 1rem;
-            border-radius: 4px;
-            cursor: pointer;
-            width: 100%;
-            font-weight: bold;
-            transition: background 0.3s;
+            transition: border-color 0.3s, box-shadow 0.3s;
         }
 
-        button:hover {
-            background-color: #990000;
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(229, 9, 20, 0.2);
         }
 
         .hint {
-            font-size: 0.85rem;
-            color: #666;
-            margin-top: 5px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 8px;
             font-style: italic;
         }
 
-        /* Classes para alternar as telas */
-        .hidden {
-            display: none;
+        .hint strong {
+            color: var(--primary);
         }
 
-        .dashboard-content {
-            background-color: #e8f4f8;
-            padding: 20px;
-            border-left: 5px solid #0066cc;
-            margin-top: 20px;
+        .btn-submit {
+            width: 100%;
+            padding: 14px;
+            background: var(--primary);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: background 0.3s, transform 0.1s;
         }
 
-        .download-btn {
-            background-color: #0066cc;
-            margin-top: 20px;
-            display: inline-block;
-            text-align: center;
-            text-decoration: none;
+        .btn-submit:hover {
+            background: var(--primary-hover);
         }
 
-        .download-btn:hover {
-            background-color: #004c99;
+        .btn-submit:active {
+            transform: scale(0.98);
         }
 
         .error-msg {
-            color: red;
-            font-size: 0.9rem;
-            margin-top: 10px;
+            color: #ff4d4d;
+            font-size: 0.85rem;
+            text-align: center;
+            margin-top: 16px;
             display: none;
+            font-weight: 600;
         }
+
+        /* Dashboard Section */
+        .hidden {
+            display: none !important;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-header h2 {
+            font-size: 1.5rem;
+        }
+
+        .status-badge {
+            background: rgba(34, 197, 94, 0.2);
+            color: #4ade80;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .mission-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 24px;
+        }
+
+        .mission-box h3 {
+            color: var(--primary);
+            margin-bottom: 16px;
+            font-size: 1.2rem;
+        }
+
+        .mission-box ul {
+            list-style-position: inside;
+            color: var(--text-muted);
+            margin-top: 16px;
+            margin-bottom: 24px;
+            line-height: 1.8;
+        }
+
+        .mission-box ul li strong {
+            color: #fff;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: #fff;
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .download-btn:hover {
+            background: #e4e4e7;
+        }
+
+        /* Professional Footer */
+        footer {
+            margin-top: auto;
+            padding: 24px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(0, 0, 0, 0.4);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer .links span {
+            margin: 0 10px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        footer .links span:hover {
+            color: #fff;
+        }
+
+        .tri-egg {
+            display: inline-block;
+            line-height: 0.9;
+            font-size: 8px;
+            opacity: 0.05;
+            transition: all 0.3s ease;
+            cursor: default;
+            text-align: center;
+        }
+        
+        .tri-egg:hover {
+            opacity: 0.8;
+            color: #e3bc14;
+            text-shadow: 0 0 8px rgba(227, 188, 20, 0.5);
+        }
+
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Piston Motors</h1>
-    </header>
-
-    <div id="landing-page" class="container">
-        <div class="hero-image"></div>
+    <div style="flex: 1; display: flex; align-items: center; padding: 20px;">
         
-        <h2>Nossa História</h2>
-        <p>A Piston Motors é pioneira na revolução da mobilidade. Nosso foco é estudar o desempenho do veículo, o feedback do cliente e os dados de segurança para criar uma experiência inesquecível na estrada. Seus insights orientarão a nossa equipe de engenharia para prever necessidades de manutenção e tornar nossos carros mais eficientes e seguros.</p>
-        
-        <div class="login-section">
-            <h3>Acesso ao Portal de Análise</h3>
-            <p>Por favor, insira suas credenciais de Analista de Dados para acessar o repositório de dados confidenciais.</p>
-            
-            <div class="form-group">
-                <label for="username">Usuário (E-mail corporativo):</label>
-                <input type="text" id="username" placeholder="analista@pistonmotors.com">
+        <div id="landing-page" class="container" style="width: 100%;">
+            <div class="header-logo">
+                <h1>Piston <span>Motors</span></h1>
             </div>
             
-            <div class="form-group">
-                <label for="password">Senha de Segurança:</label>
-                <input type="password" id="password" placeholder="Digite sua senha">
-                <div class="hint"><strong>Dica de Segurança:</strong> A velocidade é o meu lema! Qual é o bordão do carro mais rápido das pistas? (Não esqueça o hífen e a exclamação no final).</div>
-            </div>
+            <p class="description">
+                Portal de Inteligência e Análise de Relacionamento. Autentique-se para acessar os dados telemétricos, feedback de clientes e métricas de desempenho de nossa frota.
+            </p>
             
-            <button onclick="tentarLogin()">Acessar Banco de Dados</button>
-            <div id="error-message" class="error-msg">Senha incorreta. Acesso negado. Tente novamente!</div>
+            <div class="login-wrapper">
+                <div class="input-group">
+                    <label for="username">Identificação do Analista</label>
+                    <input type="text" id="username" placeholder="seu.nome@pistonmotors.com" autocomplete="off">
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Chave de Criptografia</label>
+                    <input type="password" id="password" placeholder="••••••••">
+                    <div class="hint"><strong>Dica de Segurança:</strong> A velocidade é o meu lema! Qual é o bordão do carro mais rápido das pistas? (Inclua o hífen e a exclamação).</div>
+                </div>
+                
+                <button class="btn-submit" onclick="tentarLogin()">Estabelecer Conexão</button>
+                <div id="error-message" class="error-msg">Acesso Negado. Credenciais inválidas.</div>
+            </div>
         </div>
+
+        <div id="dashboard-page" class="container hidden" style="width: 100%;">
+            <div class="dashboard-header">
+                <div>
+                    <h2>Painel de Operações</h2>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-top: 4px;">Bem-vindo(a) de volta à base.</p>
+                </div>
+                <div class="status-badge">CONEXÃO SEGURA</div>
+            </div>
+            
+            <div class="mission-box">
+                <h3>Diretriz de Análise: Relacionamento com o Cliente</h3>
+                <p style="color: #fff; font-weight: 300;">O Departamento de Relacionamento com o Cliente interceptou um grande volume de feedback em diversas regiões sobre nossos modelos mais recentes da Série X.</p>
+                
+                <ul>
+                    <li><strong>Extração:</strong> Baixe o arquivo de dados brutos criptografados abaixo.</li>
+                    <li><strong>Transformação:</strong> Utilize SQL, Python, Excel ou Power BI para higienizar os dados coletados.</li>
+                    <li><strong>Visualização:</strong> Crie gráficos (ex: gráficos de barras horizontais) para categorizar os KPIs de satisfação.</li>
+                    <li><strong>Insight:</strong> Agrupe os problemas relatados (desempenho do motor, ergonomia interna, sistema multimidia) para direcionar a equipe de engenharia.</li>
+                </ul>
+                
+                <a href="#" class="download-btn" onclick="alert('Sistema: O download do arquivo CSV iniciará quando configurado pela liderança técnica (Pessoa Instrutora).')">
+                    ↓ Extrair Dataset (CSV)
+                </a>
+            </div>
+        </div>
+
     </div>
 
-    <div id="dashboard-page" class="container hidden">
-        <h2>Bem
+    <footer>
+        <div class="copyright">
+            &copy; 2026 Piston Motors Analytics. Uso exclusivo e corporativo.
+        </div>
+        <div class="links">
+            <span>Política de Privacidade</span>
+            <span>Termos de Serviço</span>
+            <span>Suporte de TI</span>
+        </div>
+        <div class="tri-egg" title="It's dangerous to analyze alone! Take this dataset.">
+            &#9650;<br>&#9650; &#9650;
+        </div>
+    </footer>
+
+    <script>
+        function tentarLogin() {
+            const senhaInput = document.getElementById('password').value;
+            const erroMsg = document.getElementById('error-message');
+            
+            // Validação estrita da senha
+            if (senhaInput === "Ka-chau!") {
+                document.getElementById('landing-page').classList.add('hidden');
+                
+                // Pequeno delay para simular o carregamento do sistema
+                setTimeout(() => {
+                    document.getElementById('dashboard-page').classList.remove('hidden');
+                }, 300);
+                
+                erroMsg.style.display = 'none';
+            } else {
+                erroMsg.style.display = 'block';
+                // Animação de tremor na falha
+                const loginBox = document.querySelector('.login-wrapper');
+                loginBox.style.transform = 'translateX(10px)';
+                setTimeout(() => loginBox.style.transform = 'translateX(-10px)', 50);
+                setTimeout(() => loginBox.style.transform = 'translateX(0)', 100);
+            }
+        }
+    </script>
+</body>
+</html>
