@@ -1,0 +1,21 @@
+ID_Ticket,Data,Regiao,Modelo_Carro,Categoria_Problema,Nota_Satisfacao,Descricao_Cliente
+TKT-001,2026-05-10,Sudeste,X-Sedan,Desempenho do Motor,2,O carro perde força em subidas íngremes.
+TKT-002,2026-05-11,Sul,X-SUV,Sistema de Entretenimento,1,A tela multimídia desliga sozinha após 20 minutos.
+TKT-003,2026-05-12,Nordeste,X-Hatch,Design do Interior,4,Os bancos são confortáveis, mas o painel reflete muito sol.
+TKT-004,2026-05-12,Sudeste,X-SUV,Sistema de Entretenimento,2,O bluetooth desconecta o tempo todo. Irritante!
+TKT-005,2026-05-14,Centro-Oeste,X-Sedan,Desempenho do Motor,1,Sinto solavancos ao trocar de marcha em alta velocidade.
+TKT-006,2026-05-15,Sul,X-Hatch,Segurança,5,Os freios ABS responderam perfeitamente na chuva.
+TKT-007,2026-05-15,Sudeste,X-SUV,Sistema de Entretenimento,1,GPS nativo travou e a tela ficou preta no meio da viagem.
+TKT-008,2026-05-16,Nordeste,X-SUV,Desempenho do Motor,4,Motor silencioso, consumo ok.
+TKT-009,2026-05-18,Sudeste,X-Sedan,Desempenho do Motor,2,Luz de injeção acendeu com apenas 5.000 km rodados.
+TKT-010,2026-05-19,Norte,X-SUV,Sistema de Entretenimento,1,Não consigo emparelhar o celular de jeito nenhum.
+TKT-011,2026-05-20,Sul,X-Hatch,Design do Interior,3,Espaço no porta-malas é menor do que o esperado.
+TKT-012,2026-05-21,Sudeste,X-SUV,Sistema de Entretenimento,2,Sistema de som chia quando o volume passa da metade.
+TKT-013,2026-05-22,Centro-Oeste,X-Sedan,Desempenho do Motor,1,Carro engasga ao acelerar rápido.
+TKT-014,2026-05-23,Nordeste,X-SUV,Sistema de Entretenimento,1,Multimídia reinicia em loop infinito.
+TKT-015,2026-05-25,Sudeste,X-Hatch,Segurança,4,Cinto de segurança um pouco rígido, mas me sinto seguro.
+TKT-016,2026-05-26,Sul,X-Sedan,Desempenho do Motor,2,Consumo de combustível altíssimo na cidade.
+TKT-017,2026-05-27,Sudeste,X-SUV,Sistema de Entretenimento,1,Touchscreen não responde nos cantos da tela.
+TKT-018,2026-05-28,Centro-Oeste,X-Sedan,Segurança,5,Sensor de ponto cego funciona muito bem.
+TKT-019,2026-05-29,Nordeste,X-SUV,Sistema de Entretenimento,2,Delay enorme entre apertar o botão e a música tocar.
+TKT-020,2026-05-30,Sudeste,X-Sedan,Desempenho do Motor,1,Barulho metálico vindo do motor ao ligar o carro de manhã.
